@@ -1,4 +1,7 @@
 .env
 *.jpg
+*.vcf
+osint_report_*
 __pycache__/
 venv/
+

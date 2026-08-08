@@ -1,186 +1,99 @@
-<h1 align="center">WHATS LOOKUP 🕵️‍♂️</h1>
+<h1 align="center">WHATS LOOKUP 🕵️‍♂️ v2.0</h1>
 
 <p align="center">
-  Herramienta de <strong>OSINT para WhatsApp</strong> que permite obtener fotos de perfil, 
-  verificar cuentas Business, consultar estado e información de usuario, 
-  analizar dispositivos vinculados, revisar configuración de privacidad y 
-  acceder a datos completos usando la API <strong>WhatsApp OSINT</strong> de RapidAPI.
-  <br>
-  Soporta 6 endpoints: <em>about, base64, business, devices, doublecheck, privacy</em>.
-</p>
-
-<p align="center">
-  <img src="assets/Demo_WhatsLookup.png" title="WHATS LOOKUP" alt="WHATS LOOKUP" width="600"/>
+  Suite avanzada de <strong>OSINT para WhatsApp y Números Telefónicos</strong>.<br>
+  <strong>100% Autónoma</strong> (sin necesidad obligatoria de APIs de pago externas) con una <strong>TUI/CLI Moderna e Interactiva</strong>.
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white" alt="Python version">
-  <img src="https://img.shields.io/badge/RapidAPI-API-blue?logo=rapidapi&logoColor=white">
+  <img src="https://img.shields.io/badge/TUX-Rich%20Terminal-9cf?logo=gnometerminal&logoColor=white">
+  <img src="https://img.shields.io/badge/OSINT-Autonomous-green">
   <img src="https://img.shields.io/badge/License-MIT-green?logo=open-source-initiative&logoColor=white" alt="License">
 </p>
 
 ---
 
-## 🚀 Características
+## 🚀 Nuevas Características (v2.0)
 
-- Obtención de fotos de perfil de WhatsApp mediante número de teléfono
-- Verificación de cuentas de WhatsApp Business
-- Consulta de estado y información de usuario
-- Análisis de dispositivos vinculados
-- Información OSINT completa
-- Configuración de privacidad
-- Validación automática de formatos de número telefónico
-- Soporte para números internacionales (con código de país)
-- Interfaz en terminal con menú interactivo y colores
-- Guardado automático de imágenes en formato JPG
-- Detección de perfiles sin foto de perfil o ocultos
+- ⚡ **Modo Autónomo**: Análisis completo sin depender de APIs de terceros caídas o de pago.
+- 📡 **Análisis de Telecomunicaciones & Carrier**: Detección de operador telefónico (Carrier/ISP móvil), país, región, geolocalización aproximada, zona horaria y tipo de línea (Móvil, Fija, VoIP, Tarifa especial) con soporte de Google `libphonenumber`.
+- 💬 **WhatsApp Direct Access & Deep Links**: Generación de enlaces directos (`wa.me`), WhatsApp Web, y protocolos nativos de app (`whatsapp://send`).
+- 📇 **Generador de Tarjetas de Contacto vCard (.vcf)**: Crea archivos `.vcf` con 1 clic para importar el objetivo en la agenda de tu smartphone y visualizar su foto/estado de WhatsApp al instante.
+- 🔎 **Generador de Google Dorks Automatizados**: Búsquedas automáticas para descubrir grupos de WhatsApp indexados (`chat.whatsapp.com`), fugas en Pastebin/Ghostbin, menciones en GitHub y redes sociales.
+- 🌐 **Footprinting Multiplataforma**: Pivotes rápidos hacia Telegram (`t.me/+...`), Truecaller, Sync.me, ListaSpam y bases de reputación telefónica.
+- 📊 **Exportación de Informes**: Guarda automáticamente los hallazgos en formato estructurado **JSON** o **TXT**.
+- ☁️ **Módulo RapidAPI Inteligente (Opcional)**: Diagnóstico detallado con interpretación de códigos de error (`530`, `503`, cuotas y estados de mantenimiento).
+- 🎨 **Experiencia de Usuario en Terminal (TUX)**: Interfaz basada en `rich` con tablas estilizadas, paneles, spinners y menús interactivos.
+
+---
 
 ## 📌 Requisitos
 
-- Python 3.8+
+- Python 3.8 o superior
+- Dependencias: `rich`, `phonenumbers`, `requests`, `python-dotenv`, `colorama`
 
-- Librerías: `requests`, `python-dotenv`, `colorama`
-
-# 🔑 API Key (RapidAPI)
-
-NOMBRE | KEY |
-| ------------------- |-------------- |
-| [Whatsapp OSINT](https://rapidapi.com/inutil-inutil-default/api/whatsapp-osint) |  🔑 (Necesario) |
-
-- Elige el plan → [Basic](https://rapidapi.com/inutil-inutil-default/api/whatsapp-osint/pricing)
-- Copia tu **API Key**
-- Edita el nombre del archivo .env.example por .env
-- Y agrega tu API Key en el archivo .env
-
-### 🛠️ Paso 1: Configura el archivo .env con tu api
-
-En la raíz de tu proyecto corre:
-```bash
-cp .env.example .env
-```
-🔹 Esto crea un archivo nuevo llamado .env con el mismo contenido que .env.example.
-
-🔹 .env.example se mantiene intacto (sirve como plantilla).
-
-### 🛠️ Paso 2: Abrir el archivo .env para editarlo
-
-Usa nano (o el editor que prefieras, como vim o VS Code):
-```bash
-nano .env
-```
-
-### 🛠️ Paso 3: Editar las variables
-
-Dentro de nano verás algo así (ejemplo):
-
-RAPIDAPI_KEY=tu_api_key_aqui
-
-👉 Aquí debes rellenar los valores con los datos correctos para tu entorno local.
-Por ejemplo:
-
-RAPIDAPI_KEY=yysnssksls536m3mdlldldmdddlld
-
-### 🛠️ Paso 4: Guardar cambios en nano
-
-- Presiona Ctrl + O → significa “Write Out” (guardar).
-
-- Te pedirá confirmación del nombre (.env), presiona Enter.
-
-- Sal del editor con Ctrl + X.
-
-### 🛠️ Paso 5: Verificar que se guardó
-
-Ejecuta:
-```bash
-cat .env
-```
-
-## ⚠️ Advertencia de uso
-
-Esta herramienta ha sido creada exclusivamente para:
-
-- Investigaciones de ciberseguridad legítimas
-- Auditorías de seguridad autorizadas
-- Proyectos de OSINT con fines educativos
-- Análisis con consentimiento explícito
-
-🔴 **No utilices esta herramienta para actividades ilegales, acoso, o sin el consentimiento de las personas.**
-
-🟢 **El autor no se hace responsable del mal uso que otros puedan darle.**
-
----
-## ⚙️ Instalación
-
-Clona el repositorio:
-
-```bash
-git clone https://github.com/HackUnderway/whatslookup.git
-```
-```bash
-cd whatslookup
-```
 ```bash
 pip install -r requirements.txt
 ```
 
-## 🐍 Uso básico 
-##### Ejecuta el script:
+---
+
+## 🐍 Modos de Uso
+
+### 1. Modo Interactivo (Menú TUX Completo)
 ```bash
 python3 whats_lookup.py
 ```
-- Selecciona una opción del menú (1-6)
-- Ingresa el número de teléfono con código de país (ej: 51987654321)
-- La herramienta validará el formato y enviará la consulta
-- Los resultados se mostrarán según el tipo de consulta seleccionada
+Desplegará un menú interactivo con opciones numeradas para realizar escaneos completos o por módulos específicos.
 
-<p align="center">
-  <img src="assets/result.png" title="Resultados" alt="Resultados" width="600"/>
-</p>
+### 2. Modo Directo por Línea de Comandos (CLI)
 
-> **El proyecto está abierto a colaboradores.**
+- **Investigación Completa (1-Clic)**:
+```bash
+python3 whats_lookup.py -p "+34605797764" -a
+```
 
+- **Exportar Informe en formato Texto (.txt)**:
+```bash
+python3 whats_lookup.py -p "+51916574069" -a -o txt
+```
 
-# DISTRIBUCIONES SOPORTADAS
-|Distribución | Versión verificada | 	¿Soportado? | 	Estado |
-|--------------|--------------------|------|-------|
-|Kali Linux| 2025.2| si| funcionando   |
-|Parrot Security OS| 6.3| si | funcionando   |
-|Windows| 11 | si | funcionando   |
-|BackBox| 9 | si | funcionando   |
-|Arch Linux| 2024.12.01 | si | funcionando   |
+- **Incluir Escaneo en RapidAPI (si tienes clave configurada)**:
+```bash
+python3 whats_lookup.py -p "+34605797764" -a --rapidapi
+```
 
-# SOPORTE
-Preguntas, errores o sugerencias: info@hackunderway.com
+---
 
-# LICENSE
-- [x] Whats Lookup tiene licencia.
-- [x] Consulta el archivo [LICENSE](https://github.com/HackUnderway/whatslookup#MIT-1-ov-file) para más información.
+## 🔑 Configuración Opcional (RapidAPI)
 
-# CYBERSECURITY RESEARCHER
+Si deseas utilizar adicionalmente los endpoints de RapidAPI, puedes configurar tu archivo `.env`:
 
-* [Victor Bancayan](https://www.offsec.com/bug-bounty-program/) - (**CEO at [Hack Underway](https://hackunderway.com/)**) 
+```bash
+cp .env.example .env
+```
+Edita `.env` con tu clave:
+```env
+RAPIDAPI_KEY=tu_api_key_aqui
+```
 
-## 🔗 ENLACES
-[![Patreon](https://img.shields.io/badge/patreon-000000?style=for-the-badge&logo=Patreon&logoColor=white)](https://www.patreon.com/c/HackUnderway)
-[![Web site](https://img.shields.io/badge/Website-FF7139?style=for-the-badge&logo=firefox&logoColor=white)](https://hackunderway.com)
-[![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/HackUnderway)
-[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@JeyZetaOficial)
-[![Twitter/X](https://img.shields.io/badge/Twitter/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/JeyZetaOficial)
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/hackunderway)
-[![TryHackMe](https://img.shields.io/badge/TryHackMe-212C42?style=for-the-badge&logo=tryhackme&logoColor=white)](https://tryhackme.com/p/JeyZeta)
+> **Nota sobre RapidAPI**: WhatsApp restringe activamente las APIs de scraping externas. Si el endpoint de fotos devuelve aviso de cuenta Business o mantenimiento, utiliza el **generador de vCard** (`.vcf`) y los **enlaces directos** nativos de la herramienta.
 
-## ☕️ Apoya el proyecto
+---
 
-Si te gusta esta herramienta, considera invitarme un café:
+## ⚠️ Advertencia de uso
 
-[![Buy Me a Coffee](https://img.shields.io/badge/-Buy%20me%20a%20coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/hackunderway)
+Esta herramienta ha sido creada exclusivamente para:
+- Investigaciones de ciberseguridad legítimas
+- Auditorías y peritajes autorizados
+- Proyectos de OSINT con fines educativos y de concienciación
+- Análisis con consentimiento explícito
 
-## 🌞 Suscripciones
+🔴 **No utilices esta herramienta para actividades ilícitas o acoso.**
 
-###### Suscríbete a: [Jey Zeta](https://www.facebook.com/JeyZetaOficial/subscribe/)
+---
 
-[![Kali Linux](https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kalilinux&logoColor=white)](https://www.kali.org/)
+## 📄 Licencia
 
-from <img src="https://i.imgur.com/ngJCbSI.png" title="Perú"> made in <img src="https://i.imgur.com/NNfy2o6.png" title="Python"> with <img src="https://i.imgur.com/S86RzPA.png" title="Love"> by: <font color="red">Victor Bancayan</font>
-
-© 2025
+Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más información.
